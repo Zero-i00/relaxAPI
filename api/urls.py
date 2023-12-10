@@ -17,6 +17,8 @@ schema_view = get_schema_view(
 
 urlpatterns = [
    re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+   re_path(r'^auth/', include('djoser.urls.authtoken')),
+   path('auth/', include('djoser.urls')),
    path('categories/', include('api.category.urls')),
    path('posts/', include('api.post.urls'))
 ]
